@@ -31,23 +31,78 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
     <div class="w3-rest w3-padding-32">
       <h1 class="w3-text-teal">Model-View-Controller Architecture</h1>
-      <p>The Spring web application framework implements the Model-View-Controller (MVC) design pattern.
-      The models encapsulating the application data are represented as Java objects.
-      These Java objects can be organized and maintained in both relational and non-relational databases.          
+      <p>The Spring web application framework implements the Model-View-Controller (MVC) design pattern. This allows
+      web applications to be more modular and allows developers to create different components independently of one another.
       </p>
+      <p>The models encapsulating the application data are represented as Java objects.
+      These Java objects can be organized and maintained in both relational and non-relational databases.
+      </p>  
+      <p>In order to render model and application data in a client's browser the Spring framework allows developers
+      to utilize a variety of view technologies including Thymeleaf, Groovy Markup Templates, JSP, JSTL, and many more.
+      All of these different view technologies can be implemented in a web application with a few minor configuration changes.
+      </p>
+      <p>The controller objects in Spring web applications handle user requests, develop or interact with the appropriate
+      models, and pass all necessary data to the correct view object to be rendered in a client's browser.   
+      </p>                  
     </div>
 
     <div class="w3-rest w3-padding-32">
       <h1 class="w3-text-teal">DispatcherServlet</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <img src=".\Assests\Images\DispatcherServletDiagram.jpg" alt="DispatcherServlet Diagram" width="609" height="329">  
+      <p>The Spring web framework is built around a front controller scheme wherein a single servlet handles all incoming HTTP requests and all 
+      outgoing HTTP responses. In the case of Spring applications this front controller servlet is known as the DispatcherServlet.  
+      The DispatcherServlet can be configured within a web application's startup method or in a project's web.xml file.
+      </p>
+      <img src=".\Assests\Images\DispatcherServletDiagram.jpg" alt="DispatcherServlet Diagram" width="609" height="329">
+      <p>Figure 1: Spring Application Architecture Diagram (retrieved from: https://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm)
+      </p> 
+      <p>Figure 1 pictured above shows the DispatcherServlet's central role within a Spring web application.
+      In order to invoke the correct controller to handle a specific HTTP request the Dispatcher servlet interacts with
+      the HandlerMapping bean which maps requests to handlers (controllers). 
+      </p> 
+      <p>Upon invoking the correct controller based on the HandlerMapping bean to handle the HTTP request the DispatcherServlet
+      will receive the view name that needs to be invoked from the controller as well as any model data if it is generated. 
+      </p>
+      <p>The DispatcherServlet will then consult the ViewResolver which provides a mapping between view names and actual views
+      that are independent of the specific view technology being implemented.  
+      </p>
+      <p>After receiving the specific view from the ViewResolver the DispatcherServlet will pass any model data created by the 
+      controller to the view to be rendered appropriately. The rendered view data will finally be passed back to the DispatcherServlet
+      and then sent to the requesting web client as an HTTP response. 
+      </p>
     </div>
 
     <div class="w3-rest w3-padding-32">
-      <h1 class="w3-text-teal">Handler Mapping</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h1 class="w3-text-teal">HandlerMapping</h1>
+      <p>The HandlerMapping bean is responsible for mapping HTTP requests to the appropriate controllers that are designed to handle
+      them. Defining a HandlerMapping Bean can be done in a purely Java-based implementation as a Java class, or it can be done within a
+      project's web.xml file.   
+      </p>
+    </div>
+    
+    <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">Controller (Handler)</h1>
+      <p>The controller (handler) is responsible for handling HTTP requests that have been mapped to it. HTTP requests and URL's can be
+      mapped to controllers through the use of annotations. The main annotation used to accomplish this is the @RequestMapping annotation.
+      This annotation is used in conjunction with a string that represents the URL that will trigger the controller to be invoked. Besides 
+      this main annotation other HTTP method-specific annotations can be utilized for certain controller methods such as the @GetMapping, 
+      @PostMapping, and the @PutMapping annotations.           
+      </p>
+    </div>
+    
+    <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">ViewResolver</h1>
+      <p>The ViewResolver bean is responsible for mapping view names to specific view files located in the project's directory.
+      The ViewResolver bean has a number of different implementation options including the InternalResourceViewResolver bean that 
+      can be used for applications with controller's that invoke JSP view pages whose filenames match directly with their logical names.     
+      </p>
+    </div>
+    
+     <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">View</h1>
+      <p>The view components are tasked with creating the layout for model and application specific data for the requesting web 
+      client's browser. Once completed, the rendered view is then passed to the DispatherServlet to be sent to the requesting web 
+      client often in the form of an HTML page.       
+      </p>
     </div>
 
   <footer id="myFooter">
