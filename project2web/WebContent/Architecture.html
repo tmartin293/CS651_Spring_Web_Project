@@ -52,8 +52,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       outgoing HTTP responses. In the case of Spring applications this front controller servlet is known as the DispatcherServlet.  
       The DispatcherServlet can be configured within a web application's startup method or in an xml file.
       </p>
-      <img src=".\Assests\Images\DispatcherServletDiagram.jpg" alt="DispatcherServlet diagram" width="609" height="329">
-      <p>Figure 1: Spring Application Architecture Diagram (retrieved from: https://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm)
+      <img src=".\Assests\Images\DispatcherServletDiagram.jpg" alt="DispatcherServlet diagram" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      <p><b>Figure 1: </b>Spring Application Architecture Diagram (retrieved from: https://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm)
       </p> 
       <p>Figure 1 pictured above shows the DispatcherServlet's central role within a Spring web application.
       In order to invoke the correct controller to handle a specific HTTP request the Dispatcher servlet interacts with
@@ -69,19 +69,34 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       controller to the view to be rendered appropriately. The rendered view data will finally be passed back to the DispatcherServlet
       and then sent to the requesting web client as an HTTP response. 
       </p>
-      <img src=".\Assests\Images\DispatcherServletCode.jpg" alt="DispatcherServlet registration in web.xml file" width="711" height="172">
-      <br>
-      <img src=".\Assests\Images\DispatcherServletDefinition.jpg" alt="DispatcherServlet definition" width="704" height="348">
+      <div class="w3-row">
+      	<div class="w3-container w3-half">
+      		<img src=".\Assests\Images\DispatcherServletCode.jpg" alt="DispatcherServlet registration in web.xml file" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 2: </b>Registering a DispatcherServlet Named dispatcher for an Application</p>
+      	</div>
+      	<div class="w3-container w3-half">
+      		<img src=".\Assests\Images\DispatcherServletDefinition.jpg" alt="DispatcherServlet definition" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 3: </b>Defining the DispatcherServlet dispatcher</p>
+      	</div>
+      </div>	
     </div>
 
     <div class="w3-rest w3-padding-32">
       <h1 class="w3-text-teal">HandlerMapping</h1>
       <p>The HandlerMapping bean is responsible for mapping HTTP requests to the appropriate controllers that are designed to handle
-      them. Defining a HandlerMapping Bean can be done in a purely Java-based implementation as a Java class, or it can be done within a
-      project's web.xml file.   
+      them. Defining a HandlerMapping Bean can be done in a purely Java-based implementation as a Java class, or it can be done within a .xml
+      file that defines a DispatcherServlet.   
       </p>
-      <img src=".\Assests\Images\HandlerMapping.jpg" alt="HandlerMapping in DispatcherServlet" width="726" height="256">
-      <img src=".\Assests\Images\ControllerDirectory.jpg" alt="Controller directory structure" width="226" height="77">
+      <div class="w3-row">
+      	<div class="w3-container w3-third">
+      		<img src=".\Assests\Images\ControllerDirectory.jpg" alt="Controller directory structure" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 4: </b>Java Package Containing Controllers that DispatherServlet will Redirect to</p>
+      	</div>
+      	<div class="w3-container w3-twothird">
+      		<img src=".\Assests\Images\HandlerMapping.jpg" alt="HandlerMapping in DispatcherServlet" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 5: </b>HandlerMapping for dispatcher</p>
+      	</div>
+      </div>	
     </div>
     
     <div class="w3-rest w3-padding-32">
@@ -92,7 +107,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       this main annotation other HTTP method-specific annotations can be utilized for certain controller methods such as the @GetMapping, 
       @PostMapping, and the @PutMapping annotations.           
       </p>
-      <img src=".\Assests\Images\Controller.jpg" alt="Controller example" width="678" height="287">
+      <img src=".\Assests\Images\Controller.jpg" alt="Controller example" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      <p><b>Figure 6: </b>Controller Example</p>
     </div>
     
     <div class="w3-rest w3-padding-32">
@@ -101,7 +117,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       The ViewResolver bean has a number of different implementation options including the InternalResourceViewResolver bean that 
       can be used for applications with controller's that invoke JSP view pages whose filenames match directly with their logical names.     
       </p>
-      <img src=".\Assests\Images\ViewResolver.jpg" alt="ViewResolver in DispatcherServlet file" width="685" height="118">
+      <img src=".\Assests\Images\ViewResolver.jpg" alt="ViewResolver in DispatcherServlet file" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      <p><b>Figure 7: </b>ViewResolver Defined for the DispatcherServlet</p>
     </div>
     
      <div class="w3-rest w3-padding-32">
@@ -110,7 +127,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       client's browser. Once completed, the rendered view is then passed to the DispatherServlet to be sent to the requesting web 
       client often in the form of an HTML page.       
       </p>
-      <img src=".\Assests\Images\ViewDirectory.jpg" alt="View directory structure" width="245" height="182">
+      <img src=".\Assests\Images\ViewDirectory.jpg" alt="View directory structure" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      <p><b>Figure 8: </b>Directory Containing View Pages that ViewResolver Maps to</p>
     </div>
 
   <footer id="myFooter">
