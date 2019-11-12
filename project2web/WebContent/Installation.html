@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Spring Web Tutorial</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1"><i class="fa fa-bars"></i></a>
+    <a href="" class="w3-bar-item w3-button w3-theme-l1">Introduction</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Architecture </a>
+    <a href="Installation.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Installation Guide</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Hibernate Installation Guide</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Web App</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Pros and Cons</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">References</a>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="w3-container">
+
+<div class="w3-rest w3-padding-32">
+      <p>In this tutorial we will be using  Eclipse IDE</p>
+    </div>
+    
+    <div class="w3-rest w3-padding-32">
+    
+      <h1 class="w3-text-teal">STEP 1:  Maven Installation<br /></h1>
+      <p>  <b>To install maven follow the below steps:</b> <br />
+           1.	Open Eclipse<br /> 
+           2.	Go to Help -> Eclipse Marketplace<br />
+		   3.	Search by Maven<br />
+		   4.	Click "Install" button at "Maven Integration for Eclipse" section<br />
+		   5.	Follow the instruction step by step<br />
+		Once the maven is installed goto windows preference<br />
+
+		We should be able to list maven on the left list<br />
+      </p>
+      <h1 class="w3-text-teal">STEP 2:  Create a maven Project<br /></h1>
+      <p>File to new to Maven Project<br/><br/>
+      <img src="images/image-01.png"  width="400" height="200" class="center"><br/><br/>
+      
+      Give the working location<br/><br/>
+       <img src="images/image2.png"  width="400" height="200"><br/><br/>
+       Choose WEBAPP<br/><br/>
+       <img src="images/image3.png"  width="400" height="200"><br/><br/>
+       Fill the group id and articarft id <br/><br/>
+       <img src="images/image4.png"  width="400" height="200"><br/><br/>
+       GroupId identifies the project uniquely across all projects, so we need to enforce a naming schema. ArtifactId is the name of the jar without version<br/><br/>
+       If there is error in index.jsp it is because “The superclass "javax.servlet.http.HttpServlet" was not found on the Java Build Path”<br/><br/>
+       <img src="images/image5.png"  width="400" height="200"><br/><br/>
+       <b>To fix the above problem:</b><br/>
+       Follow below steps:<br/><br/>
+       Installing apache tomcat<br/>
+       Go to the link: https://tomcat.apache.org/download-90.cgi<br/><br/>
+       Click on Core:zip which downloads the zip file<br/><br/>
+       <img src="images/image6.png"  width="400" height="200"><br/><br/>
+       Extract the zip file and place it is some folder<br/><br/>
+       1.Click on server tab<br/><br/>
+       2.Right click on the space newserver<br/><br/>
+       <img src="images/image7.png"  width="400" height="200"><br/><br/>
+       Select tomcat v9.0 server click next and add the location where the tomcat file was downloaded. Now we will be able to see the server.<br/><br/>
+       project -> Properties -> Java Build Path -> Add Library...-> Server Runtime -> Apache Tomcat -> Finish.<br/><br/>
+       <img src="images/image8.png"  width="400" height="200"><br/><br/>
+       
+       <img src="images/image9.png"  width="400" height="200"><br/><br/>
+       Apache tomcat is added to the project and click finish<br/><br/>
+       <img src="images/image10.png"  width="400" height="200"><br/><br/>
+       
+       
+       Error is rectified.<br/><br/>
+       <img src="images/image11.png"  width="400" height="200"><br/><br/>
+       <!--  <img src="images/image12.png"  width="400" height="100"><br/><br/> -->
+      </p>
+      <h1 class="w3-text-teal">STEP 3: Configuring Spring using maven<br /></h1>
+      1.	We need to edit the pom.xml file to add the spring dependencies.
+Goto pom.xml file<br/><br/>
+
+      <img src="images/image12.png"  width="400" height="200"><br/><br/>
+      Add the following spring dependencies in the pom.xml<br/><br/>
+      <img src="images/image13.PNG"  width="400" height="200"><br/><br/>
+      <a href='springjar.html'><button>Link to more info about spring jars</button></a><br/><br/>
+      Now edit the web.xml file<br/><r/>
+      PATH : Project/src/main/webapp/WEB_INF/web.xml<br/><br/>
+      <img src="images/image14.PNG"  width="400" height="200"><br/><br/>
+      Now when we see we haven spring jar files under maven dependencies<br/><br/>
+      <img src="images/image15.png"  width="400" height="200"><br/><br/>
+      <a href='helloworld.html'><button>Steps to make simple HelloWorld project in spring MVC</button></a><br/><br/>
+    </div>
+
+   <!--  <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">Heading</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">Heading</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div> -->
+
+  <!-- <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Footer</h4>
+    </div>
+  </footer> -->
+
+<!-- END MAIN -->
+</div>
+
+</body>
+</html>

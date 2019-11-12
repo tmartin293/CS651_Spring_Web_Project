@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Spring Web Tutorial</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1"><i class="fa fa-bars"></i></a>
+    <a href="" class="w3-bar-item w3-button w3-theme-l1">Introduction</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Architecture </a>
+    <a href="Installation.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Installation Guide</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Hibernate Installation Guide</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Web App</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Pros and Cons</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">References</a>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="w3-container">
+
+    <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">Spring-core</h1>
+      Spring Core is an IOC container which injects the dependencies into various bean classes such as controller classes
+      , service classes which allows us to set up web components such as WebApplicationContext and resolving/creating ViewResolver objects<br/><br/>
+      Dependency Injection takes the level of decoupling that began with the Dependency Inversion Principle one step further. Dependency injection has the concept of an assembler [4] – or what in Java is commonly referred to as a Factory -- 
+      that instantiates the objects required by an application and “injects” them into their dependent objects.<br/><br/>
+      <table>
+      <tr>
+      <th>DI Type</th>
+      <th>Description</th>
+      </tr>
+      <tr>
+      <th>Constructor Injection</th>
+      <th>The constructor arguments are injected during instance instantiation.</th>
+      </tr>
+      <tr>
+      <th>Setter Injection</th>
+      <th>Dependencies are “set” in the objects through setter methods defined in a Spring configuration file.</th>
+      </tr>
+      </table>
+      Spring uses the concept of a BeanFactory as its assembler, and it is the BeanFactory that manages the JavaBeans you have configured to run within it<br/><br/>
+      Through its factory, Spring's IoC container manages the objects that it is configured to instantiate. Spring's management of the container objects adds flexibility and control to your application, 
+      and provides a central place of configuration management for your Plain Old Java Objects<br/><br/>
+      For example, through Spring IoC you can configure the number of instances of the component – whether the component is a singleton or not – and at what point the component is created and destroyed in memory. In Spring, the initialization of a bean by the framework is exactly equivalent to using the new keyword to instantiate an object in Java code. Once the framework has instantiated the object, 
+      it manages the scope of the bean, based on its configuration.<br/><br/>
+      The IoC container can also be configured to receive instantiation and destruction callback events for a particular bean. Certain components such as a database connection pool obviously need to be initialized and destroyed when the application is shutdown.
+       Instead of using your custom code, Spring can manage these life cycle events.<br/><br/>
+       <h1 class="w3-text-teal">Spring-web</h1>
+       To use the Spring Web and Servlet support, two dependencies need to be included in the pom, again in addition to the core dependencies from above:<br/><br/>
+       The spring-web dependency contains common web specific utilities for both Servlet and Portlet environments, while spring-webmvc enables the MVC support for Servlet environments.<br/><br/>
+       spring-web provides core HTTP integration, including some handy Servlet filters, Spring HTTP Invoker, infrastructure to integrate with other web frameworks and HTTP technologies e.g. Hessian, Burlap.<br/><br/>
+       
+spring-web provides core HTTP integration, including some handy Servlet filters, Spring HTTP Invoker, infrastructure to integrate with other web frameworks and HTTP technologies e.g. Hessian, Burlap.
+
+spring-webmvc is an implementation of Spring MVC. spring-webmvc depends on on spring-web, thus including it will transitively add spring-web. You don't have to add spring-web explicitly.<br/><br/>
+
+      <p></p>
+    </div>
+
+    <!-- <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">Heading</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">Heading</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Footer</h4> -->
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+</body>
+</html>
