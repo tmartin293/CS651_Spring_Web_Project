@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Spring Web Tutorial</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1"><i class="fa fa-bars"></i></a>
+    <a href="" class="w3-bar-item w3-button w3-theme-l1">Introduction</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Architecture</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Installation Guide</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Hibernate Installation Guide</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Web App</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Pros and Cons</a>
+    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">References</a>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="w3-container">
+
+    <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">What is Spring?</h1>
+      <p>Spring is an open-source framework that provides infrastructure support for developing Java enterprise applications. It provides support for different application architectures like transactional data and persistence, messaging and web. It allows developers to choose, as per their requirement, from a variety of sub-frameworks and modules supported by it, including Spring MVC.</p>
+    </div>
+
+    <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">Key features</h1>
+      <h2 class="w3-text-teal">POJO</h2>
+      <p>Spring supports application development from "Plain Old Java Object", commonly referred to as POJO development structure.</p>
+      
+      <h2 class="w3-text-teal">Dependency Injection</h2>
+      <p>Dependency injection provides the capability of separating the initialization of objects from the class which consumes those objects as dependencies. For example -
+Consider a simple class Store, whose constructor requires an object of another class Item to initialize its object- 
+public class Store {
+    private Item item;
+    public Store(Item item) {
+        this.item = item;
+    }
+}
+This is an example of DI where we have separated initialization of Item object from initialization of Store object. So, Store class has a dependency over Item class and this dependency is injected into Store object by calling class. 
+
+Spring core container modules provide support for dependency injection using XML configurations as well as using annotations like @Bean, @Configuration and @Autowired.
+For example - 
+@Configuration
+public class AppConfig { 
+    @Bean
+    public Item item1() {
+        return new ItemImpl1();
+    }
+
+    @Bean
+    public Store store() {
+        return new Store(item1());
+    }
+}
+Here @Configuration on AppConfig class indicates that it contains some beans which are item1 and store. This is an example of constructor-based DI, where when constructor of Store class is invoked, a dependency is injected utilizing another bean (item1 bean) since it is an argument for Store class constructor.
+</p>
+    </div>
+
+   
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>CS 651 - Group 9</h4>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+</body>
+</html>
