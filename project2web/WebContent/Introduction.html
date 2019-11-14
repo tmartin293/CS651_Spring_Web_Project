@@ -21,51 +21,63 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <a href=".\Installation.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Installation Guide</a>
     <a href=".\Hibernate.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Hibernate Installation Guide</a>
     <a href="" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Web App</a>
-    <a href="" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Pros and Cons</a>
+    <a href=".\Pros and Cons.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Pros and Cons</a>
     <a href=".\References.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">References</a>
   </div>
 </div>
-
 <!-- Main content -->
 <div class="w3-container">
 
     <div class="w3-rest w3-padding-32">
       <h1 class="w3-text-teal">What is Spring?</h1>
-      <p>Spring is an open-source framework that provides infrastructure support for developing Java enterprise applications. It provides support for different application architectures like transactional data and persistence, messaging and web. It allows developers to choose, as per their requirement, from a variety of sub-frameworks and modules supported by it, including Spring MVC.</p>
+      <p>Spring is an open-source framework that provides infrastructure support for developing Java enterprise applications. It is considered as a <i>framework of frameworks</i> as it consists of a number of smaller frameworks like Spring MVC, Spring AOP, Spring ORM and Spring Web Flow.</p>
+	  <p>It provides developers the flexibility to choose from a variety of sub-frameworks and modules that it supports, as per their requirement. Its ability to provide support for a wide range of application architectures like transactional data and persistence, messaging and web, makes it one of the most widely used frameworks in the industry.</p>
+	  <p>Spring is considered lightweight as the framework and its dependencies are contained in just a few JAR files. It makes use of existing technologies such as ORM framework, jee, jdk timers and many view technologies. It follows a POJO development structure and supports mechanisms like dependency injection and aspect-oriented programming.</p>
+    </div>
+	
+	<div class="w3-rest w3-padding-32">
+	<h1 class="w3-text-teal">What is Spring MVC?</h1>
+      <p>Spring MVC is a part of comprehensive Spring framework that specifically supports web application development. It is based on Model-View-Controller architecture. It makes use of Spring's key features like dependency injection to enable easier, faster and smoother web application development.</p>
     </div>
 
+	<img src=".\Assests\Images\spring-overview.png" alt="Spring Overview" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      <p><b>Image 1: </b>Spring Framework Overview
+      </p> 
+	  <p>The core container contains modules like Beans and Core, responsible for implementing features like dependency injection.</p>
+	  <p>The Data access/ integration layer contains modules like ORM, responsible for providing integration support for object-relational mapping APIs like Hibernate.</p>
+	  <p>AOP layer is responsible for implementing features like aspect-oriented programming using method-interceptors and pointcuts.</p>
+	  <p>The Test module is responsible for providing support for testing different Spring components including, providing mock test objects.</p>
+	  <p>The Web layer consists of modules and frameworks like Spring MVC and Spring WebFlux, responsible for implementing web-oriented integration features and supporting web application development.</p>
     <div class="w3-rest w3-padding-32">
       <h1 class="w3-text-teal">Key features</h1>
-      <h2 class="w3-text-teal">POJO</h2>
-      <p>Spring supports application development from "Plain Old Java Object", commonly referred to as POJO development structure.</p>
+      <br><h2 class="w3-text-teal">POJO structure</h2>
+      <p>Spring supports application development from "Plain Old Java Object", commonly referred to as POJO development structure. A POJO class is used to define an object or an entity (for e.g. a database entity) that encompasses buisness logic. JavaBeans are also special type of POJOs.</p>
       
       <h2 class="w3-text-teal">Dependency Injection</h2>
-      <p>Dependency injection provides the capability of separating the initialization of objects from the class which consumes those objects as dependencies. For example -
-Consider a simple class Store, whose constructor requires an object of another class Item to initialize its object- 
-public class Store {
-    private Item item;
-    public Store(Item item) {
-        this.item = item;
-    }
-}
-This is an example of DI where we have separated initialization of Item object from initialization of Store object. So, Store class has a dependency over Item class and this dependency is injected into Store object by calling class. 
-
-Spring core container modules provide support for dependency injection using XML configurations as well as using annotations like @Bean, @Configuration and @Autowired.
-For example - 
-@Configuration
-public class AppConfig { 
-    @Bean
-    public Item item1() {
-        return new ItemImpl1();
-    }
-
-    @Bean
-    public Store store() {
-        return new Store(item1());
-    }
-}
-Here @Configuration on AppConfig class indicates that it contains some beans which are item1 and store. This is an example of constructor-based DI, where when constructor of Store class is invoked, a dependency is injected utilizing another bean (item1 bean) since it is an argument for Store class constructor.
-</p>
+      <p>Dependency injection provides the capability of separating the initialization of objects from the class which consumes those objects as dependencies. For example -</p>
+	  <p>Consider a simple class Store, whose constructor requires an object of another class Item to initialize its object-&nbsp;</p>
+	  <p>public class Store {</p>
+	  <p>&nbsp; &nbsp; private Item item;</p>
+	  <p>&nbsp; &nbsp; public Store(Item item) {</p>
+	  <p>&nbsp; &nbsp; &nbsp; &nbsp; this.item = item;</p>
+	  <p>&nbsp; &nbsp; }</p>
+	  <p>}</p>
+	  <p>This is an example of Dependency Injection where we have separated initialization of Item object from initialization of Store object. So, Store class has a dependency over Item class and this dependency is injected into Store object by calling class.&nbsp;</p>
+	  <p>Spring core container modules provide support for dependency injection using XML configurations as well as using annotations like @Bean, @Configuration and @Autowired.</p>
+	  <p>For example -&nbsp;</p>
+	  <p>@Configuration</p>
+	  <p>public class AppConfig {&nbsp;</p>
+	  <p>&nbsp; &nbsp; @Bean</p>
+	  <p>&nbsp; &nbsp; public Item item1() {</p>
+	  <p>&nbsp; &nbsp; &nbsp; &nbsp; return new ItemImpl1();</p>
+	  <p>&nbsp; &nbsp; }</p>
+	  
+	  <p>&nbsp; &nbsp; @Bean</p>
+	  <p>&nbsp; &nbsp; public Store store() {</p>
+	  <p>&nbsp; &nbsp; &nbsp; &nbsp; return new Store(item1());</p>
+	  <p>&nbsp; &nbsp; }</p>
+	  <p>}</p>
+	  <p>In this example, @Configuration on AppConfig class indicates that it contains beans, namely  item1 and store. This is an example of constructor-based Dependency Injection, where when constructor of Store class is invoked, a dependency is injected utilizing another bean (item1) since it is an argument for Store class constructor.</p>
     </div>
 
    
