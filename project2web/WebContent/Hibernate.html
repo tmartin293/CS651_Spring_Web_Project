@@ -30,21 +30,44 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 <div class="w3-container">
 
     <div class="w3-rest w3-padding-32">
-      <h1 class="w3-text-teal">Hibernate Overview</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h1 class="w3-text-teal">Hibernate & ORM Overview</h1>
+      <p>Object-relational mapping or ORM is a technique for converting data between incompatible systems using 
+      an object-oriented programming language. In essence, ORM allows developers to work with a virtual database
+      of objects rather than a database of another type as ORM handles the conversion between the two.
+      For Java developers there are a number of ORM software solutions that can be used for mapping Java objects
+      to databases. One free ORM tool is Hibernate which can map Java objects to a relational database. Hibernate
+      allows developers to create and edit database tables with an XML configuration file.         
+      </p>
+      <img src=".\Assests\Images\HibernateDiagram.jpg" alt="Hibernate Integration diagram" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      <p><b>Figure 9: </b>Hibernate Integration Diagram (retrieved from: https://www.visual-paradigm.com/features/hibernate-orm-tools/)
+      </p>
+    </div>
+    
+    <div class="w3-rest w3-padding-32">
+      <h1 class="w3-text-teal">Useful Terminology</h1>
+      <ul>
+      	<li><b>Data Access Object (DAO): </b>The Database Access Object is a pattern for separating an application from a persistent
+      	database by using an abstract API. This API allows CRUD operations that may be complex with the database language to
+      	be abstracted and hidden from the actual application.</li><br>
+      	<li><b>Java Persistence API (JPA): </b>The Java Persistence API is the Java standard that maps Java objects to a relational
+      	database. This data persistence API is one possible approach to implement ORM. Hibernate itself is an implementation 
+      	of the JPA specification.</li><br>
+      	<li><b>Java Database Connectivity (JDBC): </b>The Java database Connectivity API is responsible for managing database connections,
+      	issuing queries, and handling database results.</li>
+      </ul>
+      
+      <p>      
+      </p>
     </div>
 
     <div class="w3-rest w3-padding-32">
-      <h1 class="w3-text-teal">Object-Relational-Mapping (ORM)</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-
-    <div class="w3-rest w3-padding-32">
-      <h1 class="w3-text-teal">Hibernate Installation & Spring Integration</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h1 class="w3-text-teal">Installation Guide</h1>
+      <p>This guide will go over how to install Hibernate to work with a MySQL database in an Eclipse Java EE IDE.
+      </p>
+      <br><h3 class="w3-text-teal">Step 1: Setup and install MySQL</h3>
+      <p> MySQL download link: <a href="https://dev.mysql.com/downloads/">https://dev.mysql.com/downloads/</a>
+      </p>    
+      <br><h3 class="w3-text-teal">Step 2: </h3>  
     </div>
 
   <footer id="myFooter">
