@@ -46,7 +46,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <div class="w3-rest w3-padding-32">
       <h1 class="w3-text-teal">Useful Terminology</h1>
       <ul>
-      	<li><b>Data Access Object (DAO): </b>The Database Access Object is a pattern for separating an application from a persistent
+      	<li><b>Data Access Object (DAO): </b>The Data Access Object is a pattern for separating an application from a persistent
       	database by using an abstract API. This API allows CRUD operations that may be complex with the database language to
       	be abstracted and hidden from the actual application.</li><br>
       	<li><b>Java Persistence API (JPA): </b>The Java Persistence API is the Java standard that maps Java objects to a relational
@@ -94,9 +94,64 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       	</div>
       </div>
       
-      <br><h3 class="w3-text-teal">Step 5: Update pom.xml File</h3>  
-      <p>Update the pom.xml file to have Maven download and install the necessary JAR files.  
+      <br><h3 class="w3-text-teal">Step 5: Create User Model</h3>  
+      <p>Create a user class that mirrors the users table in the MySQL database.  
       </p>
+      <img src=".\Assests\Images\UserClass.jpg" alt="User class" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      <p><b>Figure 14: </b>User class
+      </p>
+      <br><h3 class="w3-text-teal">Step 6: Create Hibernate Mapping & Resource Configuration</h3>  
+      <p>Create Hibernate mapping and resource configuration files.  
+      </p>
+      
+      <div class="w3-row">
+      	<div class="w3-container w3-half">
+      		<img src=".\Assests\Images\HibernateMapping.jpg" alt="Hibernate mapping" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 15: </b>Map User class to users table in usersdb schema</p>
+      	</div>
+      	<div class="w3-container w3-half">
+      		<img src=".\Assests\Images\HibernateConfiguration.jpg" alt="Hibernate resource configuration" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 16: </b>Configure Hibernate with which resources need to be mapped</p>
+      	</div>
+      </div>
+      
+      <br><h3 class="w3-text-teal">Step 7: Create DAO Interface & Implementation</h3>  
+      <p>Create DAO interface and implementation classes that define how the Spring application will
+      interact with the users table in the MySQL database.   
+      </p>
+      
+      <div class="w3-row">
+      	<div class="w3-container w3-half">
+      		<img src=".\Assests\Images\DAOInterface.jpg" alt="DAO Interface" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 17: </b>DAO Interface</p>
+      	</div>
+      	<div class="w3-container w3-half">
+      		<img src=".\Assests\Images\DAOImplementation.jpg" alt="DAO Implementation" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 18: </b>DAO Implementation</p>
+      	</div>
+      </div>
+      
+      <br><h3 class="w3-text-teal">Step 8: Create DispatcherServlet</h3>  
+      <p>Create DispatcherServlet with ViewResolver, HandlerMapping, DAO injection, Hibernate mapping, and MySQL database connection.   
+      </p>
+      
+      <div class="w3-row">
+      	<div class="w3-container w3-half">
+      		<img src=".\Assests\Images\UserDispatcherServlet1.jpg" alt="DispatcherServlet Pt.1" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 19: </b>DispatcherServlet Pt.1</p>
+      	</div>
+      	<div class="w3-container w3-half">
+      		<img src=".\Assests\Images\UserDispatcherServlet2.jpg" alt="DispatcherServlet Pt.2" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      		<p><b>Figure 20: </b>DispatcherServlet Pt.2</p>
+      	</div>
+      </div>
+      
+      <br><h3 class="w3-text-teal">Step 9: Create Controller to Display Table Entries</h3>  
+      <p>Create a controller that will render a view page with all of the entries from the users table.  
+      </p>
+      <img src=".\Assests\Images\UserController.jpg" alt="User controller" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+      <p><b>Figure 21: </b>User Controller
+      </p>    
       
     </div>
 
