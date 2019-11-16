@@ -53,53 +53,67 @@ img {
       </p>
       <h1 class="w3-text-teal">STEP 2:  Create a maven Project<br /></h1>
       <p>File to new to Maven Project<br/><br/>
-      <img src="images/image-01.png"  width="800" height="400" class="center"><br/><br/>
-      
+      <img src="images/image-01.png"  width="800" height="400" class="center">
+      <center><b>Figure 10:</b> To create a maven project</center>
       Give the working location<br/><br/>
-       <img src="images/image2.png"  width="800" height="400"><br/><br/>
-       Choose WEBAPP<br/><br/>
-       <img src="images/image3.png"  width="800" height="400"><br/><br/>
+       <img src="images/image2.png"  width="800" height="400">
+       <center><b>Figure 11:</b> To give the working location</center></br><br/>
+       Choose WEBAPP<br/>
+       maven-archetype-webapp is an archetype which generates a sample Maven webapp project:<br/><br/>
+       <img src="images/image3.png"  width="800" height="400">
+       <center><b>Figure 12:</b> To choose the Archetype</center></br><br/>
        Fill the group id and artifact id <br/><br/>
-       <img src="images/image4.png"  width="800" height="400"><br/><br/>
+       <img src="images/image4.png"  width="800" height="400">
+       <center><b>Figure 13:</b>Fill the group id and artifact id</center></br><br/>
        GroupId identifies the project uniquely across all projects, so we need to enforce a naming schema. ArtifactId is the name of the jar without version<br/><br/>
        If there is error in index.jsp it is because “The superclass "javax.servlet.http.HttpServlet" was not found on the Java Build Path”<br/><br/>
-       <img src="images/image5.png"  width="800" height="400"><br/><br/>
+       <img src="images/image5.png"  width="800" height="400">
+       <center><b>Figure 14:</b> Error on creating the maven project</center></br><br/>
        <b>To fix the above problem:</b><br/>
        Follow below steps:<br/><br/>
        Installing apache tomcat<br/>
        Go to the link: https://tomcat.apache.org/download-90.cgi<br/><br/>
        Click on Core:zip which downloads the zip file<br/><br/>
-       <img src="images/image6.png"  width="800" height="400"><br/><br/>
+       <img src="images/image6.png"  width="800" height="400">
+       <center><b>Figure 15:</b>To download the tomcat server</center></br><br/>
        Extract the zip file and place it is some folder<br/><br/>
        1.Click on server tab<br/><br/>
        2.Right click on the space newserver<br/><br/>
-       <img src="images/image7.png"  width="800" height="400"><br/><br/>
+       <img src="images/image7.png"  width="800" height="400">
+       <center><b>Figure 16:</b> To add the tomcat server</center></br><br/>
        Select tomcat v9.0 server click next and add the location where the tomcat file was downloaded. Now we will be able to see the server.<br/><br/>
        project -> Properties -> Java Build Path -> Add Library...-> Server Runtime -> Apache Tomcat -> Finish.<br/><br/>
-       <img src="images/image8.png"  width="800" height="400"><br/><br/>
+       <img src="images/image8.png"  width="800" height="400">
        
-       <img src="images/image9.png"  width="800" height="400"><br/><br/>
+       
+       <img src="images/image9.png"  width="800" height="400">
+       <center><b>Figure 17:</b> To add the server to the project</center></br><br/>
        Apache tomcat is added to the project and click finish<br/><br/>
-       <img src="images/image10.png"  width="800" height="400"><br/><br/>
-       
+       <img src="images/image10.png"  width="800" height="400">
+       <center><b>Figure 18:</b>Added server to the project</center></br><br/>
        
        Error is rectified.<br/><br/>
-       <img src="images/image11.png"  width="800" height="400"><br/><br/>
+       <img src="images/image11.png"  width="800" height="400">
+       <center><b>Figure 19:</b> error is rectified</center></br><br/>
        
       </p>
       <h1 class="w3-text-teal">STEP 3: Configuring Spring using maven<br /></h1>
       1.	We need to edit the pom.xml file to add the spring dependencies.
 Goto pom.xml file<br/><br/>
 
-      <img src="images/image12.png"  width="800" height="400"><br/><br/>
+      <img src="images/image12.png"  width="800" height="400">
+       <center><b>Figure 20:</b>pom.xml file after creating the project</center></br><br/>
       Add the following spring dependencies in the pom.xml<br/><br/>
-      <img src="images/image13.PNG"  width="800" height="400"><br/><br/>
+      <img src="images/image13.PNG"  width="800" height="400">
+       <center><b>Figure 21:</b> Dependencies to be added to the jar file</center></br><br/>
       <a href='springjar.html'><button>Link to more info about spring jars</button></a><br/><br/>
       Now edit the web.xml file<br/><r/>
       PATH : Project/src/main/webapp/WEB_INF/web.xml<br/><br/>
-      <img src="images/image14.PNG"  width="800" height="400"><br/><br/>
+      <img src="images/image14.PNG"  width="800" height="400">
+       <center><b>Figure 22:</b> content to be placed in web.xml file</center></br><br/>
       Now when we see we haven spring jar files under maven dependencies<br/><br/>
-      <img src="images/image15.png"  width="800" height="400"><br/><br/>
+      <img src="images/image15.png"  width="800" height="400">
+       <center><b>Figure 23:</b> jar files added to project depending upon the maven dependencies</center></br><br/>
       <a href='helloworld.html'><button>Steps to make simple HelloWorld project in spring MVC</button></a><br/><br/>
     </div>
 
