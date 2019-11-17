@@ -12,12 +12,12 @@ import com.websystem.spring.model.Person;
 
 @Repository
 public class PersonDAOImpl implements PersonDAO {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(PersonDAOImpl.class);
 
 	private SessionFactory sessionFactory;
-	
-	public void setSessionFactory(SessionFactory sf){
+
+	public void setSessionFactory(SessionFactory sf) {
 		this.sessionFactory = sf;
 	}
 
@@ -25,14 +25,14 @@ public class PersonDAOImpl implements PersonDAO {
 	public void addPerson(Person p) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.save(p);
-		logger.info("Person saved successfully, Person Details="+p);
+		logger.info("Person saved successfully, Person Details=" + p);
 	}
 
 	@Override
 	public void updatePerson(Person p) {
-		Session session = this.sessionFactory.getCurrentSession(); 
+		Session session = this.sessionFactory.getCurrentSession();
 		session.update(p);
-		logger.info("Person updated successfully, Person Details="+p);
+		logger.info("Person updated successfully, Person Details=" + p);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -40,28 +40,33 @@ public class PersonDAOImpl implements PersonDAO {
 	public List<Person> listPersons() {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Person> personsList = session.createQuery("from Person").list();
-		for(Person p : personsList){
-			logger.info("Person List::"+p);
+		for (Person p : personsList) {
+			logger.info("Person List::" + p);
 		}
 		return personsList;
 	}
 
 	@Override
 	public Person getPersonById(String id) {
-		Session session = this.sessionFactory.getCurrentSession();		
-		Person p = (Person) session.load(Person.class, new String(id));
-		logger.info("Person loaded successfully, Person details="+p);
-		return p;
+		Session session = this.sessionFactory.getCurrentSession();
+		try {
+			Person p = (Person) session.load(Person.class, new String(id));
+			logger.info("Person loaded successfully, Person details=" + p);
+			return p;
+		} catch (Exception e) {
+			System.out.println("------ returning an empty object ---------");
+			return new Person();
+		}
 	}
 
 	@Override
 	public void removePerson(String id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Person p = (Person) session.load(Person.class, new String(id));
-		if(null != p){
+		if (null != p) {
 			session.delete(p);
 		}
-		logger.info("Person deleted successfully, person details="+p);
+		logger.info("Person deleted successfully, person details=" + p);
 	}
 
 }

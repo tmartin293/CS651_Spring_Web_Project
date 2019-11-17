@@ -4,7 +4,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Person Page</title>
+	<title>Student Login Page</title>
 	<style type="text/css">
 		.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
 		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
@@ -13,17 +13,20 @@
 	</style>
 </head>
 <body>
-<!-- <h1>
-	Add a Person
-</h1> -->
 
-<c:url var="addAction" value="validate" ></c:url>
+
+<c:url var="validateAction" value="validate" ></c:url>
+<form:form action="${validateAction}" modelAttribute="person">
 
  <label for="student_id"><b>Student Id</b></label>
     <input type="text" placeholder="Enter Student ID" name="student_id" required>
   <label for="student_name"><b>Student Name</b></label>
     <input type="text" placeholder="Enter Student name" name="student_name" required>
-    <button type="submit">Login</button>
+    <c:if test="${empty student_id}">
+				<input type="submit"
+					value="<spring:message text="Login"/>" />
+			</c:if>
+    </form:form>
     </body>
     </html>
     

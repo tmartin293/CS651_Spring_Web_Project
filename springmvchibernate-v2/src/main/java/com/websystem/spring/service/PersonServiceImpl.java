@@ -10,7 +10,7 @@ import com.websystem.spring.model.Person;
 
 @Service
 public class PersonServiceImpl implements PersonService {
-	
+
 	private PersonDAO personDAO;
 
 	public void setPersonDAO(PersonDAO personDAO) {
@@ -39,6 +39,13 @@ public class PersonServiceImpl implements PersonService {
 	@Transactional
 	public Person getPersonById(String getStudent_id) {
 		return this.personDAO.getPersonById(getStudent_id);
+	}
+
+	@Override
+	@Transactional
+	public boolean validate(String student_id) {
+		Person person = this.personDAO.getPersonById(student_id);
+		return person.getStudent_id() != null;
 	}
 
 	@Override

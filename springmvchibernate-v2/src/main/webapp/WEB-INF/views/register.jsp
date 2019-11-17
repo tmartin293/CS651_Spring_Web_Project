@@ -4,7 +4,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Person Page</title>
+	<title>Student Registration Page</title>
 	<style type="text/css">
 		.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
 		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
@@ -21,19 +21,7 @@
 
 <form:form action="${addAction}" modelAttribute="person">
 <table>
-<%-- 	<c:if test="${!empty person.student_name}">
-	<tr>
-		<td>
-			<form:label path="student_id">
-				<spring:message text="ID"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="student_id" readonly="true" size="8"  disabled="true" />
-			<form:hidden path="student_id" />
-		</td> 
-	</tr>
-	</c:if> --%>
+
 	<tr>
 		<td>
 			<form:label path="student_name">
@@ -78,11 +66,11 @@
 		<td colspan="2">
 			<c:if test="${!empty student_id}">
 				<input type="submit"
-					value="<spring:message text="Edit Person"/>" />
+					value="<spring:message text="Edit Student"/>" />
 			</c:if>
 			<c:if test="${empty student_id}">
 				<input type="submit"
-					value="<spring:message text="Add Person"/>" />
+					value="<spring:message text="Add Student"/>" />
 			</c:if>
 		</td>
 	</tr>

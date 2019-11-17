@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Successful record add</title>
 </head>
 <body>
 <h3>Successfully added/edited the details</h3><br/><br/>
- <td><a href="/SpringMVCHibernate/persons">veiw the details</a>
+ <td><a href="/SpringMVCHibernate/persons">view the details</a>
 </body>
 </html>

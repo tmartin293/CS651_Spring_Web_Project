@@ -4,7 +4,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Person Page</title>
+	<title>Student Profile Page</title>
 	<style type="text/css">
 		.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
 		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<h3>Persons List</h3>
+<h3>Students List</h3>
 <c:if test="${!empty listPersons}">
 	<table class="tg">
 	<tr>
