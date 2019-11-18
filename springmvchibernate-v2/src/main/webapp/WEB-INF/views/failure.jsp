@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Successful record add</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h3>Successfully edited the details</h3><br/><br/>
- <td><a href="/SpringMVCHibernate/editvalidate">view the details</a>
+<h3>Invalid login credentials!!!</h3><br/><br/>
+ <td><a href="/SpringMVCHibernate/home">Click here to go back to home page</a>
 </body>
 </html>

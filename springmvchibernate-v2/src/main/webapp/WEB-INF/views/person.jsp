@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<c:url var="addAction" value="person/add" ></c:url>
+<c:url var="addAction" value="/editvalidate" ></c:url>
 
 <form:form action="${addAction}" commandName="person">
 <table>
@@ -63,40 +63,17 @@
 		<td colspan="2">
 			<c:if test="${!empty student_id}">
 				<input type="submit"
-					value="<spring:message text="Edit Student"/>" />
+					value="<spring:message text="Edit Profile Information"/>" />
 			</c:if>
 			<c:if test="${empty student_id}">
 				<input type="submit"
-					value="<spring:message text="Add Student"/>" />
+					value="<spring:message text="Edit Profile Information"/>" />
 			</c:if>
 		</td>
 	</tr>
 </table>	
 </form:form>
 <br>
-<h3>Students List</h3>
-<c:if test="${!empty listPersons}">
-	<table class="tg">
-	<tr>
-		<th width="80">Student ID</th>
-		<th width="120">Student Name</th>
-		<th width="120">Student Email</th>
-		 <th width="120">Course ID</th>
-		
-		<th width="60">Edit</th>
-		<th width="60">Delete</th>
-	</tr>
-	<c:forEach items="${listPersons}" var="person">
-		<tr>
-			<td>${person.student_id}</td>
-			<td>${person.student_name}</td>
-			<td>${person.student_email}</td>
-			 <td>${person.course_id}</td> 
-			<td><a href="<c:url value='/edit/${person.student_id}' />" >Edit</a></td>
-			<td><a href="<c:url value='/remove/${person.student_id}' />" >Delete</a></td>
-		</tr>
-	</c:forEach>
-	</table>
-</c:if>
+ 
 </body>
 </html>

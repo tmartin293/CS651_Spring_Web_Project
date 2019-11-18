@@ -14,62 +14,29 @@
 </head>
 <body>
 
-<c:url var="addAction" value="person/add" ></c:url>
 
-<form:form action="${addAction}" commandName="person">
-<table>
-
+<h3>Student Course Schedule</h3>
+<table class="tg">
 	<tr>
-		<td>
-			<form:label path="student_name">
-				<spring:message text="student_name"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="student_name" />
-		</td> 
+		<th width="80">Student ID</th>
+		<th width="120">Student Name</th>
+		<th width="120">Student Email</th>
+		 <th width="120">Course ID</th>
+		
+		<th width="60">Edit</th>
+		<!-- <th width="60">Delete</th> -->
 	</tr>
-	<tr>
-		<td>
-			<form:label path="student_id">
-				<spring:message text="student_id"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="student_id" />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<form:label path="student_email">
-				<spring:message text="student_email"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="student_email" />
-		</td>
-	</tr>
+	
 		<tr>
-		<td>
-			<form:label path="course_id">
-				<spring:message text="course_id"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="course_id" />
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<c:if test="${empty student_id}">
-				<input type="submit"
-					value="<spring:message text="Edit Profile"/>" />
-			</c:if>
-		</td>
-	</tr>
-</table>	
-</form:form>
-<br>
+			<td>${person.student_id}</td>
+			<td>${person.student_name}</td>
+			<td>${person.student_email}</td>
+			 <td>${person.course_id}</td> 
+			<td><a href="<c:url value='/edit/${person.student_id}' />" >Edit</a></td>
+			<%-- <td><a href="<c:url value='/remove/${person.student_id}' />" >Delete</a></td>
+ --%>		</tr>
+	
+	</table>
 
 </body>
 </html>

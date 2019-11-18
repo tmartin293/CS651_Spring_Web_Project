@@ -17,7 +17,7 @@
 	Add a Person
 </h1> -->
 
-<c:url var="addAction" value="person/add" ></c:url>
+<c:url var="addAction" value="/displayregistration" ></c:url>
 
 <form:form action="${addAction}" modelAttribute="person">
 <table>

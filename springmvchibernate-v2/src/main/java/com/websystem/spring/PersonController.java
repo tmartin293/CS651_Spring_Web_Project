@@ -32,6 +32,11 @@ public class PersonController {
 		return new ModelAndView("home");
 	}
 
+	@RequestMapping(value = "/failure", method = RequestMethod.GET)
+	public ModelAndView failure() {
+		return new ModelAndView("failure");
+	}
+
 	@RequestMapping(value = "/logincheck", method = RequestMethod.GET)
 	public ModelAndView logincheck() {
 		return new ModelAndView("logincheck");
@@ -42,6 +47,7 @@ public class PersonController {
 		model.addAttribute("person", new Person());
 		model.addAttribute("listPersons", this.personService.listPersons());
 		return "afterregistration";
+		// return "viewPersonProfile";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -51,36 +57,49 @@ public class PersonController {
 		return "register";
 	}
 
-	// For add and update person both
-	@RequestMapping(value = "/person/add", method = RequestMethod.POST)
-	public String addPerson(@ModelAttribute("person") Person p) {
+	// // For add and update person both
+	// @RequestMapping(value = "/person/add", method = RequestMethod.POST)
+	// public String addPerson(@ModelAttribute("person") Person p) {
+	//
+	// /* if(p.getStudent_id() == null){ */
+	// // new person, add it
+	// this.personService.addPerson(p);
+	// /*
+	// * }else{ //existing person, call update this.personService.updatePerson(p); }
+	// */
+	// return "success";
+	// }
 
-		/* if(p.getStudent_id() == null){ */
-		// new person, add it
-		this.personService.addPerson(p);
-		/*
-		 * }else{ //existing person, call update this.personService.updatePerson(p); }
-		 */
-		return "success";
-	}
+	// @RequestMapping(value = "/person/add/register", method = RequestMethod.POST)
+	// public String addPersonregister(@ModelAttribute("person") Person p) {
+	//
+	// /* if(p.getStudent_id() == null){ */
+	// // new person, add it
+	// this.personService.addPerson(p);
+	// /*
+	// * }else{ //existing person, call update this.personService.updatePerson(p); }
+	// */
+	// return "successregister";
+	// }
+	//
+	// @RequestMapping(value = "edit/person/add", method = RequestMethod.POST)
+	// public String updatePerson(@ModelAttribute("person") Person p) {
+	//
+	// /* if(p.getStudent_id() == null){ */
+	// // new person, add it
+	// this.personService.updatePerson(p);
+	// /*
+	// * }else{ //existing person, call update this.personService.updatePerson(p); }
+	// */
+	// return "success";
+	// }
 
-	@RequestMapping(value = "edit/person/add", method = RequestMethod.POST)
-	public String updatePerson(@ModelAttribute("person") Person p) {
-
-		/* if(p.getStudent_id() == null){ */
-		// new person, add it
-		this.personService.updatePerson(p);
-		/*
-		 * }else{ //existing person, call update this.personService.updatePerson(p); }
-		 */
-		return "success";
-	}
-
-	@RequestMapping("/remove/{getStudent_id}")
-	public String removePerson(@PathVariable("getStudent_id") String getStudent_id) {
-		this.personService.removePerson(getStudent_id);
-		return "redirect:/persons";
-	}
+	// @RequestMapping("/remove/{getStudent_id}")
+	// public String removePerson(@PathVariable("getStudent_id") String
+	// getStudent_id) {
+	// this.personService.removePerson(getStudent_id);
+	// return "redirect:/persons";
+	// }
 
 	@RequestMapping("/edit/{getStudent_id}")
 	public String editPerson(@PathVariable("getStudent_id") String getStudent_id, Model model) {
@@ -96,7 +115,22 @@ public class PersonController {
 			model.addAttribute("person", this.personService.getPersonById(student_id));
 			return "viewPersonProfile";
 		} else
-			return "redirect:/home";
+			return "redirect:/failure";
 	}
 
+	@RequestMapping(value = "/editvalidate", method = RequestMethod.POST)
+	public String editvalidate(@RequestParam("student_id") String student_id, Model model,
+			@ModelAttribute("person") Person p) {
+		this.personService.updatePerson(p);
+		model.addAttribute("person", this.personService.getPersonById(student_id));
+		return "viewPersonProfile";
+	}
+
+	@RequestMapping(value = "/displayregistration", method = RequestMethod.POST)
+	public String displayregistration(@RequestParam("student_id") String student_id, Model model,
+			@ModelAttribute("person") Person p) {
+		this.personService.addPerson(p);
+		model.addAttribute("person", this.personService.getPersonById(student_id));
+		return "viewPersonProfile";
+	}
 }

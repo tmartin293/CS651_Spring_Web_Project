@@ -15,7 +15,7 @@
 <title>Home Page</title>
 </head>
 <body>
-<h3 align="center">${headerMessage}</h3>
+<h1 align="center">Student Portal</h1>
 <table align="center">
             <tr>
                 <td><a href="/SpringMVCHibernate/logincheck">Login</a>
