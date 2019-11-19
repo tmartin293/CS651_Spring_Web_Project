@@ -44,27 +44,27 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       <p><b>Figure 1: </b>Spring Framework Overview (ref: https://docs.spring.io/spring/docs/5.0.0.RC2/spring-framework-reference/overview.html)
       </p> 
 	  <p>The core container contains modules like Beans and Core, responsible for implementing features like dependency injection.</p>
-	  <p>The Data access/ integration layer contains modules like ORM, responsible for providing integration support for object-relational mapping APIs like Hibernate.</p>
-	  <p>AOP layer is responsible for implementing features like aspect-oriented programming using method-interceptors and pointcuts.</p>
-	  <p>The Test module is responsible for providing support for testing different Spring components including, providing mock test objects.</p>
-	  <p>The Web layer consists of modules and frameworks like Spring MVC and Spring WebFlux, responsible for implementing web-oriented integration features and supporting web application development.</p>
+	  <p>The Data access/integration layer contains modules like ORM, responsible for providing integration support for object-relational mapping APIs like Hibernate.</p>
+	  <p>The AOP layer is responsible for implementing features like aspect-oriented programming using method-interceptors and pointcuts.</p>
+	  <p>The Test module is responsible for providing support for testing different Spring components including providing mock test objects.</p>
+	  <p>The Web layer consists of modules and frameworks like Spring MVC and Spring WebFlux that are responsible for implementing web-oriented integration features and supporting web application development.</p>
     <div class="w3-rest w3-padding-32">
       <h1 class="w3-text-teal">Key features</h1>
       <br><h2 class="w3-text-teal">POJO structure</h2>
-      <p>Spring supports application development from "Plain Old Java Object", commonly referred to as POJO development structure. A POJO class is used to define an object or an entity (for e.g. a database entity) that encompasses buisness logic. JavaBeans are also special type of POJOs.</p>
+      <p>Spring supports application development from "Plain Old Java Object", commonly referred to as POJO development structure. A POJO class is used to define an object or an entity (for e.g. a database entity) that encompasses business logic. JavaBeans are a special type of POJO as well.</p>
       
       <h2 class="w3-text-teal">Dependency Injection</h2>
       <p>Dependency injection provides the capability of separating the initialization of objects from the class which consumes those objects as dependencies. For example -</p>
-	  <p>Consider a simple class Store, whose constructor requires an object of another class Item to initialize its object-&nbsp;</p>
+	  <p>Consider a simple class Store, whose constructor requires an object of another class Item to initialize its object:&nbsp;</p>
 	  <p>public class Store {</p>
 	  <p>&nbsp; &nbsp; private Item item;</p>
 	  <p>&nbsp; &nbsp; public Store(Item item) {</p>
 	  <p>&nbsp; &nbsp; &nbsp; &nbsp; this.item = item;</p>
 	  <p>&nbsp; &nbsp; }</p>
 	  <p>}</p>
-	  <p>This is an example of Dependency Injection where we have separated initialization of Item object from initialization of Store object. So, Store class has a dependency over Item class and this dependency is injected into Store object by calling class.&nbsp;</p>
+	  <p>This is an example of Dependency Injection where we have separated initialization of Item object from initialization of Store object. So, Store class has a dependency over Item class and this dependency is injected into the Store object by calling class.&nbsp;</p>
 	  <p>Spring core container modules provide support for dependency injection using XML configurations as well as using annotations like @Bean, @Configuration and @Autowired.</p>
-	  <p>For example -&nbsp;</p>
+	  <p>For example:&nbsp;</p>
 	  <p>@Configuration</p>
 	  <p>public class AppConfig {&nbsp;</p>
 	  <p>&nbsp; &nbsp; @Bean</p>
