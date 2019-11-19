@@ -16,14 +16,14 @@
 <body>
 
 <a class="button_example" href="/SpringMVCHibernate/home"><font color="black">LogOut</font></a>
-<h3>Student Course Schedule</h3>
+<h1>Student Profile</h1>
 
 <table class="tg">
 	<tr>
 		<th width="80">Student ID</th>
 		<th width="120">Student Name</th>
 		<th width="120">Student Email</th>
-		 <th width="120">Course ID</th>
+		 <!-- <th width="120">Course ID</th> -->
 		
 		<th width="60">Edit</th>
 		<!-- <th width="60">Delete</th> -->
@@ -33,13 +33,45 @@
 			<td>${person.student_id}</td>
 			<td>${person.student_name}</td>
 			<td>${person.student_email}</td>
-			 <td>${person.course_id}</td> 
+			 <%-- <td>${person.course_id}</td> --%> 
 			<td><a href="<c:url value='/edit/${person.student_id}' />" >Edit</a></td>
 			<%-- <td><a href="<c:url value='/remove/${person.student_id}' />" >Delete</a></td>
  --%>		</tr>
 	
+	
+	
 	</table>
-	<br/><br/><br/><br/>
+	<br/><br/>
+	<h1>Registered Courses</h1>
+	<c:if test="${!empty listCourses}">
+	<table class="tg">
+	<tr>
+		<th width="80">Course ID</th>
+		<!-- <th width="120">Student Name</th>
+		<th width="120">Student Email</th>
+		 <th width="120">Course ID</th>
+		
+		<th width="60">Edit</th>
+		<th width="60">Delete</th> -->
+	</tr>
+	<c:forEach items="${listCourses}" var="courses">
+		<tr>
+			<td>${courses.course_id}</td>
+			<%-- <td>${person.student_name}</td>
+			<td>${person.student_email}</td>
+			 <td>${person.course_id}</td> 
+			<td><a href="<c:url value='/edit/${person.student_id}' />" >Edit</a></td>
+			<td><a href="<c:url value='/remove/${person.student_id}' />" >Delete</a></td> --%>
+		</tr>
+	</c:forEach>
+	</table>
+</c:if>
+	<br/><br/>
+	
+	
+	
+	
+	<h1>List of Available Courses</h1>
 <table class="tg">
 	<tr>
 		<th width="80">Course ID</th>
@@ -94,6 +126,24 @@
 			 <td>T-TH 7-8:30</td> 
 			</tr> 
 	</table>	
+	
+	<br/><br/>
+	<h1>Select Courses to register</h1>
+	<form:form action="addCourse" commandName="courses">
+	<select name="course_id">
+	    <option value="CS651">CS651</option>
+	    <option value="CS611">CS611</option>
+	    <option value="CS621">CS621</option>
+	    <option value="CS663">CS663</option>
+	    <option value="CS671">CS671</option>
+	    <option value="CS631">CS631</option>
+	    <option value="CS623">CS623</option>
+	</select>
+	<input type='hidden' name='student_id' value=${person.student_id} />
+	<input type="submit" value="<spring:message text="Add course"/>" />
+	<input type="submit" value="<spring:message text="Remove course"/>" onclick="this.form.action='removeCourse';"/>
+	</form:form>
+	
 
 </body>
 </html>

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.websystem.spring.dao.PersonDAO;
+import com.websystem.spring.model.Courses;
 import com.websystem.spring.model.Person;
 
 @Service
@@ -54,4 +55,21 @@ public class PersonServiceImpl implements PersonService {
 		this.personDAO.removePerson(getStudent_id);
 	}
 
+	@Override
+	@Transactional
+	public void addCourse(String student_id, String course_id) {
+		this.personDAO.addCourse(student_id, course_id);
+	}
+
+	@Override
+	@Transactional
+	public void removeCourse(String student_id, String course_id) {
+		this.personDAO.removeCourse(student_id, course_id);
+	}
+
+	@Override
+	@Transactional
+	public List<Courses> getCourses(String student_id) {
+		return this.personDAO.getCourses(student_id);
+	}
 }

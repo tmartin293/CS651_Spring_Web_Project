@@ -14,8 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.websystem.spring.model.Person;
 import com.websystem.spring.service.PersonService;
 
-
-
 @Controller
 public class PersonController {
 
@@ -44,14 +42,6 @@ public class PersonController {
 		return new ModelAndView("logincheck");
 	}
 
-	@RequestMapping(value = "/persons", method = RequestMethod.GET)
-	public String listPersons(Model model) {
-		model.addAttribute("person", new Person());
-		model.addAttribute("listPersons", this.personService.listPersons());
-		return "afterregistration";
-		// return "viewPersonProfile";
-	}
-
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register(Model model) {
 		model.addAttribute("person", new Person());
@@ -59,6 +49,66 @@ public class PersonController {
 		return "register";
 	}
 
+	@RequestMapping("/edit/{getStudent_id}")
+	public String editPerson(@PathVariable("getStudent_id") String getStudent_id, Model model) {
+		model.addAttribute("person", this.personService.getPersonById(getStudent_id));
+		model.addAttribute("listPersons", this.personService.listPersons());
+		return "person";
+	}
+
+	@RequestMapping(value = "/validate", method = RequestMethod.POST)
+	public String validateUsr(@RequestParam("student_id") String student_id, Model model) {
+		boolean isValid = this.personService.validate(student_id);
+		if (isValid) {
+			model.addAttribute("person", this.personService.getPersonById(student_id));
+			model.addAttribute("listCourses", this.personService.getCourses(student_id));
+			return "viewPersonProfile";
+		} else
+			return "redirect:/failure";
+	}
+
+	@RequestMapping(value = "/editvalidate", method = RequestMethod.POST)
+	public String editvalidate(@RequestParam("student_id") String student_id, Model model,
+			@ModelAttribute("person") Person p) {
+		this.personService.updatePerson(p);
+		model.addAttribute("person", this.personService.getPersonById(student_id));
+		model.addAttribute("listCourses", this.personService.getCourses(student_id));
+		return "viewPersonProfile";
+	}
+
+	@RequestMapping(value = "/addCourse", method = RequestMethod.POST)
+	public String addCourse(@RequestParam("student_id") String student_id, @RequestParam("course_id") String course_id,
+			Model model, @ModelAttribute("person") Person p) {
+		this.personService.addCourse(student_id, course_id);
+		model.addAttribute("person", this.personService.getPersonById(student_id));
+		model.addAttribute("listCourses", this.personService.getCourses(student_id));
+		return "viewPersonProfile";
+	}
+
+	@RequestMapping(value = "/removeCourse", method = RequestMethod.POST)
+	public String removeCourse(@RequestParam("student_id") String student_id,
+			@RequestParam("course_id") String course_id, Model model, @ModelAttribute("person") Person p) {
+		this.personService.removeCourse(student_id, course_id);
+		model.addAttribute("person", this.personService.getPersonById(student_id));
+		model.addAttribute("listCourses", this.personService.getCourses(student_id));
+		return "viewPersonProfile";
+	}
+
+	@RequestMapping(value = "/displayregistration", method = RequestMethod.POST)
+	public String displayregistration(@RequestParam("student_id") String student_id, Model model,
+			@ModelAttribute("person") Person p) {
+		this.personService.addPerson(p);
+		model.addAttribute("person", this.personService.getPersonById(student_id));
+		model.addAttribute("listCourses", this.personService.getCourses(student_id));
+		return "viewPersonProfile";
+	}
+
+	/*
+	 * @RequestMapping(value = "/persons", method = RequestMethod.GET) public String
+	 * listPersons(Model model) { model.addAttribute("person", new Person());
+	 * model.addAttribute("listPersons", this.personService.listPersons()); return
+	 * "afterregistration"; // return "viewPersonProfile"; }
+	 */
 	// // For add and update person both
 	// @RequestMapping(value = "/person/add", method = RequestMethod.POST)
 	// public String addPerson(@ModelAttribute("person") Person p) {
@@ -102,37 +152,4 @@ public class PersonController {
 	// this.personService.removePerson(getStudent_id);
 	// return "redirect:/persons";
 	// }
-
-	@RequestMapping("/edit/{getStudent_id}")
-	public String editPerson(@PathVariable("getStudent_id") String getStudent_id, Model model) {
-		model.addAttribute("person", this.personService.getPersonById(getStudent_id));
-		model.addAttribute("listPersons", this.personService.listPersons());
-		return "person";
-	}
-
-	@RequestMapping(value = "/validate", method = RequestMethod.POST)
-	public String validateUsr(@RequestParam("student_id") String student_id, Model model) {
-		boolean isValid = this.personService.validate(student_id);
-		if (isValid) {
-			model.addAttribute("person", this.personService.getPersonById(student_id));
-			return "viewPersonProfile";
-		} else
-			return "redirect:/failure";
-	}
-
-	@RequestMapping(value = "/editvalidate", method = RequestMethod.POST)
-	public String editvalidate(@RequestParam("student_id") String student_id, Model model,
-			@ModelAttribute("person") Person p) {
-		this.personService.updatePerson(p);
-		model.addAttribute("person", this.personService.getPersonById(student_id));
-		return "viewPersonProfile";
-	}
-
-	@RequestMapping(value = "/displayregistration", method = RequestMethod.POST)
-	public String displayregistration(@RequestParam("student_id") String student_id, Model model,
-			@ModelAttribute("person") Person p) {
-		this.personService.addPerson(p);
-		model.addAttribute("person", this.personService.getPersonById(student_id));
-		return "viewPersonProfile";
-	}
 }

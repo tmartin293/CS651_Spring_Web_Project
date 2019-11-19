@@ -1,13 +1,16 @@
 package com.websystem.spring.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.websystem.spring.model.Courses;
 import com.websystem.spring.model.Person;
 
 @Repository
@@ -67,6 +70,40 @@ public class PersonDAOImpl implements PersonDAO {
 			session.delete(p);
 		}
 		logger.info("Person deleted successfully, person details=" + p);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Courses> getCourses(String studentId) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String queryString = String.format("select * from courses where student_id='%s';", studentId);
+		List<Object[]> rows = session.createSQLQuery(queryString).list();
+		List<Courses> courses = new ArrayList<>();
+		for (Object[] row : rows) {
+			courses.add(new Courses(row[0].toString(), row[1].toString()));
+		}
+		return courses;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void addCourse(String studentId, String courseId) {
+		Session session = this.sessionFactory.getCurrentSession();
+		Courses course = new Courses(studentId, courseId);
+		session.save("Courses", course);
+	}
+
+	@Override
+	public void removeCourse(String studentId, String courseId) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String queryString = String.format("delete from courses where course_id='%s';", courseId);
+		SQLQuery q = session.createSQLQuery(queryString);
+		q.executeUpdate();
+
+		/*
+		 * Courses course = new Courses(studentId, courseId); if (course != null) {
+		 * session.delete("Courses", course); }
+		 */
 	}
 
 }

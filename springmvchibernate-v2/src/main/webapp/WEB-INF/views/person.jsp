@@ -15,9 +15,9 @@
 </head>
 <body>
 <a class="button_example" href="/SpringMVCHibernate/home"><font color="black">LogOut</font></a>
-<c:url var="addAction" value="/editvalidate" ></c:url>
+<c:url var="editAction" value="/editvalidate" ></c:url>
 
-<form:form action="${addAction}" commandName="person">
+<form:form action="${editAction}" commandName="person">
 <table>
 
 	<tr>
