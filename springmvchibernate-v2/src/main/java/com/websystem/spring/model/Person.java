@@ -28,8 +28,6 @@ public class Person {
 
 	private String student_email;
 
-	// private String course_id;
-
 	public String getStudent_id() {
 		return student_id;
 	}
@@ -53,14 +51,6 @@ public class Person {
 	public void setStudent_email(String student_email) {
 		this.student_email = student_email;
 	}
-
-	// public String getCourse_id() {
-	// return course_id;
-	// }
-	//
-	// public void setCourse_id(String course_id) {
-	// this.course_id = course_id;
-	// }
 
 	@Override
 	public String toString() {

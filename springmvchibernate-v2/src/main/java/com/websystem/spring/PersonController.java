@@ -79,7 +79,11 @@ public class PersonController {
 	@RequestMapping(value = "/addCourse", method = RequestMethod.POST)
 	public String addCourse(@RequestParam("student_id") String student_id, @RequestParam("course_id") String course_id,
 			Model model, @ModelAttribute("person") Person p) {
-		this.personService.addCourse(student_id, course_id);
+		try {
+			this.personService.addCourse(student_id, course_id);
+		} catch (Exception e) {
+			System.out.println("--- Constraint violation-----");
+		}
 		model.addAttribute("person", this.personService.getPersonById(student_id));
 		model.addAttribute("listCourses", this.personService.getCourses(student_id));
 		return "viewPersonProfile";

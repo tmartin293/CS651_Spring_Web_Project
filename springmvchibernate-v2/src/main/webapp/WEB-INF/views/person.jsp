@@ -50,16 +50,6 @@
 			<form:input path="student_email" />
 		</td>
 	</tr>
-		<tr>
-		<td>
-			<form:label path="course_id">
-				<spring:message text="course_id"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="course_id" />
-		</td>
-	</tr>
 	<tr>
 		<td colspan="2">
 			<c:if test="${!empty student_id}">

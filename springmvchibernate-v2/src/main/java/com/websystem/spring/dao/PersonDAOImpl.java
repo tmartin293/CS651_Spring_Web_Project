@@ -90,7 +90,11 @@ public class PersonDAOImpl implements PersonDAO {
 	public void addCourse(String studentId, String courseId) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Courses course = new Courses(studentId, courseId);
-		session.save("Courses", course);
+		try {
+			session.save("Courses", course);
+		} catch (Exception e) {
+			// Do nothing
+		}
 	}
 
 	@Override

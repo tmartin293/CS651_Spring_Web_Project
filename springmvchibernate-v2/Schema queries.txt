@@ -1,0 +1,4 @@
+Use these as SQL queries to create the schema-
+CREATE TABLE student(student_id varchar(255) not NULL, student_name VARCHAR(255), student_email VARCHAR(255), PRIMARY KEY ( student_id ));
+
+CREATE TABLE courses(student_id varchar(255) not NULL, course_id VARCHAR(255), PRIMARY KEY ( course_id, student_id ));
